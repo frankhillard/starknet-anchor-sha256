@@ -67,3 +67,5 @@ view-factory: ##@Scripts - Invoke the Factory contract to retrieve storage infor
 anchor-message: ##@Scripts - Generate a Anchor contract (make anchor-message MSG=toto ANCHORING=0x123123123123123 )
 	@$(NPM) run anchoring:anchor '$(MSG)' $(ANCHORING)
 
+view-message: ##@Scripts - Invoke the Anchoring contract to retrieve message for a given index (make view-message MAX=10)
+	@$(NPM) run anchoring:view $(MAX)

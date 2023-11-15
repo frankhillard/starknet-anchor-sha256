@@ -138,7 +138,11 @@ make anchor-message MSG=MSG=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d
 ```
 As you can see the message is specified as a 256-bit hash. Behind the `make anchor-message` command there is a script that splits the given hash into 2 felts before calling the `anchor` entrypoint of the Anchoring contract.
 
-
+### Display anchored messages (CLI)
+One can use the `view_message.ts` script to display anchored messages. The makefile provides a command (with a maximum argument)
+```
+make view-message MAX=10
+```
 
     
 ## How to interact with the deployed contract on `starkscan` explorer

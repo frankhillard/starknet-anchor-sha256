@@ -6,6 +6,7 @@
     "factory:view": "ts-node view_factory.ts",
     "declare:anchoring": "ts-node declare_anchoring.ts",
     "anchoring:anchor": "ts-node anchor_message.ts",
+    "anchoring:view": "ts-node view_message.ts",
     "test:ledger": "ts-node test_ledger.ts",
     "test": "ts-mocha --bail"
   },

@@ -1,4 +1,4 @@
-import { Provider, Contract, Account, ec, json, constants } from "starknet";
+import { RpcProvider, Contract, Account, ec, json, constants } from "starknet";
 import * as dotenv from "dotenv";
 import path from "path";
 import fs from "fs";
@@ -11,7 +11,8 @@ dotenv.config({ path: path.join(__dirname, "..", ".env") });
 console.log("connect wallet")
 
 // initialize provider
-const provider = new Provider({ sequencer: { network: constants.NetworkName.SN_GOERLI } })
+// const provider = new Provider({ sequencer: { network: constants.NetworkName.SN_GOERLI } })
+const provider = new RpcProvider({ nodeUrl: constants.NetworkName.SN_GOERLI })
 // const provider = new Provider({ sequencer: { baseUrl:"http://127.0.0.1:5050"  } });
 
 const privateKey = process.env.ACCOUNT_PRIVKEY;

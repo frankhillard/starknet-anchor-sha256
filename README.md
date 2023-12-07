@@ -20,15 +20,15 @@ curl -L https://raw.githubusercontent.com/foundry-rs/starknet-foundry/master/scr
 
 ## Deployed on Testnet
 
-anchoring contract class hash: `0x6c327a65f1445575597205314eb9b1af7bfb9222f2540f45b013fa2d86870a1`
-factory contract class hash: `0x317b17f68ac153f19f04a9b6117b77553910e051ee356ab077417a884c5b4c5`
-factory contract instance: `0x6e98693786ed4677d0594d26383e7d3c47aa46761a1fc3fb12ff0480095c2a9`
-an anchoring contract instance has been generated at: `0x2975b241a06158fa0a98104f6b9c1ba0431871ad7fcc00687bf4345aaddc5e`
+anchoring contract class hash: `0x65d69f8bcacf7133ac3707e5ceff4a33c2d4d783197c8b31f31fa35fcbeb123`
+factory contract class hash: `0x073cc69690b55f81387e7eb37d761725e388b1b3f60062336256c07c19249ad2`
+factory contract instance: `0x1b6d85e0cdb052b9544480045d2a3294d9e88c7abc858c1e7af0abfa284adf4`
+an anchoring contract instance has been generated at: `0x3205ab62a5671e38975775e1ef856ad45415a03701bb82e8d68fc02fe93f9f0`
 
 
 ## Smart contracts
 
-This repository involves two contracts: the Factory contract and the Anchoring contract. This repository contains the implementation of factory and anchoring contracts written in cairo v2.3.0.
+This repository involves two contracts: the Factory contract and the Anchoring contract. This repository contains the implementation of factory and anchoring contracts written in cairo v2.3.1.
 
 The Factory contract provides an invokable function (`deploy`) to deploy a new anchor contract on-demand. This function can only be called by the administrator role of the Factory.
 
@@ -94,7 +94,7 @@ The Anchoring contract is responsible for anchoring a hash (SHA-256).
 Actually the compile command relies on the scarb package manager and in fact calls the `scarb build` command.
 
 - Tests of smart contracts can be launched with command `make test`. It executes all tests
-It also relies on he scarb package manager and in fact calls the `scrab test` command. Tests are based on a test framework  Starknet-foundry, so tests can also be launched with command `snforge`.
+It also relies on the scarb package manager and in fact calls the `scarb test` command. Tests are based on a test framework  Starknet-foundry, so tests can also be launched with command `snforge`.
 
 If you get the following error,  
 ```
@@ -131,7 +131,7 @@ It should produce locally a file `deployments/anchoring.ts` with the address of 
 
 ### Anchor a hash !
 - Anchor a message. The message is a SHA-256 hash (without the '0x' prefix)
-`make anchor-message MSG=MSG=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08`
+`make anchor-message MSG=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08`
 - you can also specify the Anchoring contract address as a CLI variable
 ```
 make anchor-message MSG=MSG=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08 ANCHORING=0x2975b241a06158fa0a98104f6b9c1ba0431871ad7fcc00687bf4345aaddc5e
@@ -146,7 +146,7 @@ make view-message MAX=10
 
     
 ## How to interact with the deployed contract on `starkscan` explorer
-- First of all, go the [contract page into the explorer, into the tab **Read/Write**](https://testnet.starkscan.co/contract/0x2975b241a06158fa0a98104f6b9c1ba0431871ad7fcc00687bf4345aaddc5e#read-write-contract), then you should be able to consult the current anchored value by calling `get_anchored_values()` function.
+- First of all, go the [contract page into the explorer, into the tab **Read/Write**](https://testnet.starkscan.co/contract/0x03205ab62a5671e38975775e1ef856ad45415a03701bb82e8d68fc02fe93f9f0#read-write-contract), then you should be able to consult the current anchored value by calling `get_anchored_values()` function.
 - For the next interactions, you will need to get a wallet that will make you able to interact with functions on the explorer like [ArgentX](https://www.argent.xyz/argent-x/). 
 - You will need to create a wallet and fund it with something like `0.001eth` to be fine.
 - You can now prepare your message, it can be a number or a string, if you want to do a string you can use a tool like [this](https://string-functions.com/string-hex.aspx) in order to generate an hex version of your string.

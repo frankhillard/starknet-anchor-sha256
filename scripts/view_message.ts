@@ -1,4 +1,4 @@
-import { Provider, Contract, Account, ec, json, constants } from "starknet";
+import { RpcProvider, Contract, Account, ec, json, constants } from "starknet";
 import * as dotenv from "dotenv";
 import path from "path";
 import fs from "fs";
@@ -7,7 +7,8 @@ import fs from "fs";
 dotenv.config({ path: path.join(__dirname, "..", ".env") });
 
 // initialize provider and account
-const provider = new Provider({ sequencer: { network: constants.NetworkName.SN_GOERLI } })
+// const provider = new Provider({ sequencer: { network: constants.NetworkName.SN_GOERLI } })
+const provider = new RpcProvider({ nodeUrl: constants.NetworkName.SN_GOERLI })
 const privateKey = process.env.ACCOUNT_PRIVKEY;
 const accountAddress = process.env.ACCOUNT_ADDRESS;
 const account = new Account(provider, accountAddress, privateKey);

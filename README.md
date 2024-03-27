@@ -7,6 +7,8 @@ This repository provides smart contracts, tests and scripts for deploying a fact
 
 ## prerequisite
 
+Install/upgrade locally these two tools.
+
 scarb - https://docs.swmansion.com/scarb/download.html
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://docs.swmansion.com/scarb/install.sh | sh

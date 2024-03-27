@@ -28,9 +28,11 @@ const declare = async () => {
         // Declare Test contract in devnet
         const compiledContract = json.parse(fs.readFileSync("../target/dev/factory_anchor_long_Anchoring.contract_class.json").toString("ascii"));
         const compiledContractCasm = json.parse(fs.readFileSync("../target/dev/factory_anchor_long_Anchoring.compiled_contract_class.json").toString("ascii"));
+        // const { suggestedMaxFee: fee1 } = await account.estimateDeclareFee({ contract: compiledContract, casm: compiledContractCasm });
+        // console.log("suggestedMaxFee =", fee1.toString(), "wei");
         const declareResponse = await account.declare({ contract: compiledContract, casm: compiledContractCasm });
+        console.log("Attempt Anchoring class declaration.", declareResponse.class_hash);
         await provider.waitForTransaction(declareResponse.transaction_hash);
-
         console.log("✅ Contract declared.", declareResponse.class_hash);
         saveContractAddress("anchoring_class_hash", declareResponse.class_hash);
         // console.log(`[OK] : ${declareResponse}`);

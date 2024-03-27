@@ -42,7 +42,7 @@ mod Anchoring {
         self.admin.write(admin);
     }
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl AnchorImpl of super::AnchorTrait<ContractState> {
         fn authorize(ref self: ContractState, user: ContractAddress) {
             self._is_admin_caller();

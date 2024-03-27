@@ -56,7 +56,7 @@ mod Factory {
         self.class_hash.write(_class_hash);
     }
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl FactoryImpl of super::FactoryTrait<ContractState> {
         /// @dev Returns the admin role
         fn get_admin(self: @ContractState) -> ContractAddress {
